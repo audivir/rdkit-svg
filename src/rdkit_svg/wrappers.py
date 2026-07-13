@@ -135,9 +135,9 @@ class Box:
         return all(self._contains(p) for p in key)
 
 
-FILL_DEFAULTS = {
-    k: "black" for k in ("circle", "ellipse", "path", "polygon", "rect", "text")
-}
+FILL_DEFAULTS = dict.fromkeys(
+    ("circle", "ellipse", "path", "polygon", "rect", "text"), "black"
+)
 
 
 class ElemSpan(ABC):

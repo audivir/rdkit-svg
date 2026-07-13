@@ -25,9 +25,9 @@ f32 = numba.types.float32
 c64 = numba.types.complex64
 Tuple = numba.types.Tuple
 
-if os.environ.get("COVERAGE_DEBUG", "0") == "1":
+if not TYPE_CHECKING and os.environ.get("COVERAGE_DEBUG", "0") == "1":
 
-    def njit(  # pylint: disable=function-redefined
+    def njit(
         *args: Any, **kwargs: Any
     ) -> Callable[[Callable[P, R]], Callable[P, R]]:
         """Dummy decorator if numba is deactivated."""
